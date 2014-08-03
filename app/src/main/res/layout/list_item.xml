@@ -1,4 +1,5 @@
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/image_item"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/item_height" />
+    android:layout_height="@dimen/item_height"
+    android:background="@drawable/frame_selector"/>
