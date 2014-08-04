@@ -13,13 +13,14 @@ import java.util.List;
 public class MimimiActivity extends ListActivity {
 
     private MimimiAdapter adapter;
+    private List<Bitmap> bitmaps;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        List<Bitmap> bitmaps = new ArrayList<Bitmap>();
+        bitmaps = new ArrayList<Bitmap>();
 
         try {
             for (String path: getAssets().list("")) {
@@ -61,5 +62,13 @@ public class MimimiActivity extends ListActivity {
         }
 
         return inSampleSize;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        for(Bitmap bitmap : bitmaps) {
+            bitmap.recycle();
+        }
     }
 }

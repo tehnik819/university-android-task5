@@ -13,11 +13,11 @@ import java.util.List;
 public class MimimiAdapter extends ArrayAdapter<Bitmap> {
 
     public MimimiAdapter(Context context, Bitmap[] bitmaps) {
-        super(context, R.layout.list_item, 0, bitmaps);
+        super(context, 0, bitmaps);
     }
 
     public MimimiAdapter(Context context, List<Bitmap> bitmaps) {
-        super(context, R.layout.list_item, 0, bitmaps);
+        super(context, 0, bitmaps);
     }
 
     @Override
