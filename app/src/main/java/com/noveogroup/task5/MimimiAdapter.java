@@ -22,24 +22,11 @@ public class MimimiAdapter extends ArrayAdapter<Bitmap> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView = null;
-
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
-            imageView = (ImageView) convertView.findViewById(R.id.image_item);
-            convertView.setTag(imageView);
+        ImageView imageView = (ImageView) convertView;
+        if (imageView == null) {
+            imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
-
-        Bitmap bitmap = getItem(position);
-        if(imageView == null) {
-            imageView = (ImageView) convertView.getTag();
-        }
-
-        if(bitmap != null) {
-            imageView.setImageBitmap(getItem(position));
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        }
-
-        return convertView;
+        imageView.setImageBitmap(getItem(position));
+        return imageView;
     }
 }
